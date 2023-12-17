@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>목표물 폭☆4시키기 게임</title>
+    <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+    <link rel="stylesheet" href="./files/css/style.css">
+</head>
+
+<body style="margin-top: 0px;">
+    <div class="body">
+        <div class="playarea">
+            <button id="startBtn" onclick="shootinggamegame.start(function(p1){p1.shootinggamemove();p1.objects.shootinggame.style.backgroundImage='none';p1.objects.shootinggame.src='./files/img/shootinggame1.png'});">게임 시작하기</button>
+            <select id="weaponchanger">
+                <option value="_m1911">콜트 M1911A1</option>
+                <option value="_PPK" selected>발터 PPK</option>
+            </select>
+            <div class="play">
+                <div id="level" class="levelarea">
+                    <div class="levelareaul">
+                        <div class="li" style="left: 0px;position: relative;"> 현재 난이도:<span id="leveldiv"></span> </div>
+                        <div class="li">
+                                <span onclick="document.getElementById('leveldescdiv').style.display=(document.getElementById('leveldescdiv').style.display=='none')?'block':'none';" role="button" style="cursor: pointer;"> [펼치기/접기]현재 난이도 난이도 설명: </span>
+                                <span id="leveldescdiv" style="display: none;background: inherit;width: calc(var(--displaywidth)*1.45);position: relative;left: calc((var(--displaywidth)*0.55));letter-spacing: 0.1rem;"></span>
+                        </div>
+                        <div class="li">
+                            <span onclick="document.getElementsByClassName('howtoplay')[0].style.display=(document.getElementsByClassName('howtoplay')[0].style.display=='none')?'block':'none'">[펼치기/접기]게임 플레이 방법 및 규칙</span>
+                            <div class="howtoplay header small" style="display: none;background: inherit;position: relative;letter-spacing: 0.05rem;width: calc(var(--displaywidth)*1.8);">
+                                <h3>게임 방법 및 규칙</h3>
+                                <div class="howtoplay_body">
+                                    <p><span>게임 시작을 누르면 목표물이 위아래로 움직일겁니다.</span></p>
+                                    <p><span>저 자동권총(정확하겐 콜트 M1911A1. 45구경 ACP -0.45인치 콜트 자동권총탄- 를 사용하는 미국제 권총으로 한국군에서 주로 45구경이라고 부름)을 클릭하면(모바일에선
+                                            터치하면) 총이 발사됩니다.</span></p>
+                                    <p><span>목표물이 총에 맞으면(버그때문에 반드시 가슴보다 위 턱 이상을 맞혀야 한다.) 목표물는 폭☆4하게 되며,그 난이도가 끝나고 다음난이도에 들어가게 됩니다.</span></p>
+                                    <p><span>난이도는 7가지가 있습니다.</span></p>
+                                    <h3>주의: 정말 유치해보일수 있고, 어쩌면 유치해 '보이는' 게 아니라 유치한거 맞을수도 있다는거 저도 압니다. 그래도 <a
+                                            href="https://search.naver.com/search.naver?query=KIN+즐">KIN</a>겁게 플레이해주세요.</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="li">
+                            <span onclick="document.getElementById('startBtn').click();">지금 게임 시작</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="gameovermodalbg">
+                    <div class="gameovermodal">
+                        <button onclick="document.getElementsByClassName('gameovermodalbg')[0].style.display='none';" id="closemodal">&times; 닫기</button>
+                        <div class="" id="yongjang">
+                            
+                            
+                        </div>
+                        
+                    </div>
+                </div>
+                <img src="./files/img/shootinggame1.png" alt="목표물" id="shootinggame">
+                <img src="./files/img/m1911.png" alt="콜트 M1911 피스톨 출처 위키피디아" id="weapon_1_pistol"
+                    style="display: none;">
+                <div class="gun_group" id="m1911pistolgr" role="button" style="cursor: pointer;" onclick="this.focus();" tabindex="-1" data-img-gun="_m1911">
+                    <img src="./files/img/guns/_PPK/32ACPcartridge.png" alt="" class="shell">
+                    <img src="./files/img/guns/_PPK/slide.png" alt="" class="slide">
+                        <img src="./files/img/guns/_PPK/frame.png" alt="" class="frame_1">
+                        <img src="./files/img/guns/_PPK/barrel.png" alt="" class="frame_2">
+                    
+                    <img src="./files/img/guns/_PPK/hammer.png" alt="" class="hammer">
+                    <img src="./files/img/guns/_PPK/PPK_magazine_loaded.png" alt="" class="magazine">
+                    <span class="gunflash" style="border:none;"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./files/js/guns.js"></script>
+</body>
+
+</html>
