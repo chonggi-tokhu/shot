@@ -1,0 +1,496 @@
+
+/* VSC에서 작업창이 너무 많아 이동하기 어려우니 표시해놓기. ../../fighting.html */
+:root {
+    --displaywidth: 100px;
+    --fontunnit: 0.90;
+}
+
+h1 {
+    --fontsize: 2em;
+}
+
+h2 {
+    --fontsize: 1.5em;
+}
+
+h3 {
+    --fontsize: 1.17em;
+}
+
+h5 {
+    --fontsize: 0.83em;
+}
+
+h6 {
+    --fontsize: 0.67em;
+}
+
+#m1911pistolgr[data-img-gun='_m1911'] {
+    position: absolute;
+    top: calc(var(--displaywidth) * 3.00);
+    left: calc(var(--displaywidth) * 4.40);
+    float: left;
+}
+
+
+#m1911pistolgr[data-img-gun='_m1911'] .slide {
+    position: relative;
+    top: calc(var(--displaywidth) * -0.031);
+    left: calc(var(--displaywidth) * 0.08);
+    height: calc(var(--displaywidth) * 0.60);
+    width: calc(var(--displaywidth) * 2.4);
+    opacity: 1;
+    z-index: 10;
+    clear: none;
+    float: left;
+}
+
+
+#m1911pistolgr[data-img-gun='_m1911'] .frame_1 {
+    position: relative;
+    opacity: 1;
+    left: calc(var(--displaywidth) * -1.80);
+    width: calc(var(--displaywidth) * 2.20);
+    height: calc(var(--displaywidth) * 1.65);
+    top: calc(var(--displaywidth)*0.3);
+    z-index: 16 !important;
+    float: left;
+}
+
+#m1911pistolgr[data-img-gun='_m1911'] .frame_2 {
+    position: relative;
+    left: calc(var(--displaywidth) * -4.5);
+    top: calc(var(--displaywidth)*0.1);
+    width: calc(var(--displaywidth) * 1.7);
+    height: calc(var(--displaywidth) * 0.45);
+    z-index: 5 !important;
+    float: left;
+}
+
+#m1911pistolgr[data-img-gun='_m1911'] .hammer {
+    position: relative;
+    top: calc(var(--displaywidth) * 0.04);
+    left: calc(var(--displaywidth) * -4.25);
+    height: calc(var(--displaywidth) * 0.65);
+    width: calc(var(--displaywidth) * 0.65);
+    float: left;
+}
+
+#m1911pistolgr[data-img-gun='_m1911'] .shell {
+    position: relative;
+    width: calc(var(--displaywidth) * 0.50);
+    left: calc(var(--displaywidth) * 1.8);
+    top: calc(var(--displaywidth) * 0.2);
+    float: left;
+}
+
+#shootinggame {
+    position: absolute;
+    height: calc(var(--displaywidth) * 3.5);
+    top: calc(var(--displaywidth) * 2.0);
+    left: calc(var(--displaywidth)*0);
+}
+#m1911pistolgr[data-img-gun='_PPK'] {
+    position: absolute;
+    top: calc(var(--displaywidth)*3.0);
+    left: calc(var(--displaywidth)*4.40);
+    float: left;
+}
+#m1911pistolgr[data-img-gun='_PPK'] .shell {
+    position: relative;
+    float: left;
+    width: calc(var(--displaywidth)*0.385);
+    left: calc(var(--displaywidth) *0.64);
+    top: calc(var(--displaywidth)*0.075);
+    opacity: 1;
+    /*탄피 길이는 17mm이고 45Acp탄피 길이는 23mm니까 23mm를 --displaywidth의 0.5로 본다는건(위에 45ACP탄피길이를 0.5로 해놓았음) 0.5곱하기 23분의17이 됨. 0.36956 어쩌고가 나오니 반올림해서 0.37로 잡기. 쓰고 남은 탄피 배출을 위한 이미지이므로 탄자길이 포함할 필요도 없고 해서도 안됨. 0.37로 직접 실험해보니 좀 작음. 두께를 좀만 늘려야겠다. 0.385 */
+}
+#m1911pistolgr[data-img-gun='_PPK'] .slide {
+    position: relative;
+    float: left;
+    width: calc(var(--displaywidth)*2.0);
+    left: calc(var(--displaywidth)*-0.5);
+    z-index: 10;
+    /*슬라이드 길이는 대애충 45구경 피스톨보다 0.4정도 작게*/
+}
+#m1911pistolgr[data-img-gun='_PPK'] .frame_1 {
+    position: relative;
+    float: left;
+    width: calc(var(--displaywidth)*2);
+    top: calc(var(--displaywidth)*0.105);
+    left: calc(var(--displaywidth)*-2.35);
+    z-index: 15;
+    /*얜 손잡이가 기울어져있으니 프레임이 더 길수도 있지만 총구쪽 앞부분에서 좀 전에 프레임이 끝나니 서로 비슷해서 상쇄한다 치고 길이를 슬라이드와 같게*/
+}
+#m1911pistolgr[data-img-gun='_PPK'] .frame_2 {
+    position: relative;
+    float: left;
+    width: calc(var(--displaywidth)*1.40);
+    height: calc(var(--displaywidth)*0.19);
+    left: calc(var(--displaywidth)*-4.45);
+    top:calc(var(--displaywidth)*0.14);
+    z-index: 5;
+    /*대충 총열길이는 반 조금 넘게. 처음엔 1.05로 했는데 직접 보니 그것보단 좀 길어야겠다. 모양이 왜곡되어 길이는 짧은데 두께가 심각해짐. 그래서 따로따로 조절. 후술하겠지만 탄피두께를 적당히 계산해서 탄피 최대 두께가 0.18이 나와 총열은 관이니까 당연히 더 두꺼울테니 0.20으로 설정. */
+    /*직접실험 후 총열두께는 0.19가 적절하다고 판단 */
+}
+#m1911pistolgr[data-img-gun='_PPK'] .magazine {
+    position: relative;
+    float: left;
+    height: calc(var(--displaywidth)*1.40);
+    left: calc(var(--displaywidth)*-5.075);
+    transform: rotate(-2deg);
+    top: calc(var(--displaywidth)*0.27);
+    /*대충 탄창은 길게... 가 아니라 대충하지 말고 탄피를 보면 싸이즈가 탄자 미포함 탄피길이 0.37으로 했음. 그러면 탄피가 세미림드이기도 하고 탄자 물리고도 남는 껍데기 두께에다가 강선때문에 실제론 탄자가 약간더 큼. 그걸 계산하기 힘들지만 우리에겐 0.32인치라는 숫자가 있다. 약 8.1밀리미터정도가 나오는데,17밀리미터를 0.37로 하면 대충 8밀리미터 조금넘는것을 0.37의 반이 조금 안되게 대략 0.18로 볼수 있음. 탄피 가장 두꺼운 부분이 0.18이면 7발탄창에다가 급탄용수철과 여러가지 판떼기 등등이 있는 아랫부분 길이도 있으니 0.18*7+ 대충 감으로 계산한 아래쪽길이 0.2 하면 1.46은 나와줘야 함.그래도 아까 17대8.1=0.37대 얼마 계산에서 실제보다 크게나왔고 실제로도 약간 큰 감이 있지만 아래쪽에 연장손잡이도 있으니 displaywidth=100 기준으로 1픽셀만 양보해서 1.45를 타협의 선으로.*/
+    /*근데 직접 실험해보니 좀 김. 1.4가 적절해보임*/
+}
+#m1911pistolgr[data-img-gun='_PPK'] .magazine[src="./files/img/guns/_PPK/PPK_magazine.png"] {
+    height: calc(var(--displaywidth)*1.40);
+    left: calc(var(--displaywidth)*-5.05);
+    top: calc(var(--displaywidth)*0.27);
+    transform: rotate(-2deg);
+    position: relative;
+    /*얘는 직접 실험해봐야 함. 좀 짧아야겠다.*/
+    float: left;
+}
+#m1911pistolgr[data-img-gun='_PPK'] .hammer {
+    position: relative;
+    height: calc(var(--displaywidth)*0.45);
+    width: calc(var(--displaywidth)*0.30);
+    top: calc(var(--displaywidth)*0.05);
+    left: calc(var(--displaywidth)*-4.21);
+    transform: rotate(10deg);
+    /*얘는 직접 실험해봐야 함. 좀 짧아야겠다.*/
+    float: left;
+}
+
+@keyframes PPK_loadinganie {
+    from{left: calc(var(--displaywidth)*-0.5);}
+    50%{left: calc(var(--displaywidth)*0.0);}
+    to{left: calc(var(--displaywidth)*-0.5);}
+}
+@keyframes _PPK_muzzleflash {
+    from {
+        opacity: 0;
+        background: radial-gradient(#ffff90, orangered, orange, red, #bef, #fff, transparent, transparent);
+        left: calc(var(--displaywidth) * -7.50);
+    }
+
+    50% {
+        top: calc(var(--displaywidth) * -0.025);
+    }
+
+    80% {
+        opacity: 1;
+        top: calc(var(--displaywidth) * 0.125);
+        left: calc(var(--displaywidth)*-7.75);
+        background: radial-gradient(#ffff90, orangered, orange, red, #bef, #fff, transparent, transparent);
+        width: calc(var(--displaywidth)*0.6);
+        height: calc(var(--displaywidth)*0.3);
+    }
+
+    to {
+        top: calc(var(--displaywidth)*-0.025);
+        opacity: 0;
+        left: calc(var(--displaywidth) * -7.50);
+        background: radial-gradient(#ffff90, orangered, orange, red, #bef, #fff, transparent, transparent);
+        width: calc(var(--displaywidth)*0.3);
+        height: calc(var(--displaywidth)*0.225);
+    }
+}
+@keyframes PPK_loadingtomagazine {
+    from{
+    left: calc(var(--displaywidth)*-5.05);
+    top: calc(var(--displaywidth)*0.27);}
+    30%{
+        left: calc(var(--displaywidth)*-4.5);
+            top: calc(var(--displaywidth)*1.5);
+    }
+    80%{
+        left: calc(var(--displaywidth)*-4.5);
+            top: calc(var(--displaywidth)*1.5);
+    }
+    to{
+        left: calc(var(--displaywidth)*-5.05);
+            top: calc(var(--displaywidth)*0.27);
+    }
+}
+@keyframes _32ACPcartridge {
+    from{left: calc(var(--displaywidth) *1.0);
+        top: calc(var(--displaywidth)*0.075);}
+    60%{left: calc(var(--displaywidth) *1.1);
+        top: calc(var(--displaywidth)*-0.80);}
+    94%{
+        left: calc(var(--displaywidth) *1.5);
+            top: calc(var(--displaywidth)*0.80);
+            opacity: 1;
+    }
+    to{left: calc(var(--displaywidth) *1.0);
+        top: calc(var(--displaywidth)*0.6);
+        opacity: 0;}
+}
+@keyframes _PPK_hammer {
+    from {
+            transform: rotate(10deg);
+        }
+    
+        50% {
+            transform: translate(calc(var(--displaywidth)*0.25), calc(var(--displaywidth)*0.25)) rotate(45deg);
+        }
+    
+        to {
+            transform: rotate(10deg);
+        }
+}
+.gameover {
+    position: relative;
+    top: calc(var(--displaywidth)*0.8);
+    font-weight: 900;
+    background: transparent;
+    text-align: center;
+    color: #ffa520;
+    font-size: 250%;
+    text-shadow: 2px 2px 1px #9ce, -1px -1px #9ce;
+}
+
+.gameovermodal {
+    z-index: 1000;
+    position: relative;
+    background: #fff;
+    color: black;
+    height: 70%;
+    width: 80%;
+    top: 5%;
+    left: 10%;
+}
+
+.gameovermodalbg {
+    text-align: center;
+    z-index: 1000;
+    top: 0px;
+    display: none;
+    position: fixed;
+    width: 96%;
+    left: 2%;
+    height: 105%;
+    background: rgba(160, 120, 160, 0.5);
+}
+
+#m1911pistolgr[data-img-gun='_m1911'] .magazine {
+    float: left;
+    z-index: -15;
+    position: relative;
+    top: calc(var(--displaywidth)*0.35);
+    left: calc(var(--displaywidth)*-5.35);
+    width: calc(var(--displaywidth)*1.10);
+    height: calc(var(--displaywidth)*1.65);
+    transform: rotate(-2.5deg);
+}
+
+#m1911pistolgr[data-img-gun='_m1911'] .magazine[src="./files/img/guns/_m1911/m1911_magazine.png"] {
+    z-index: -15;
+    opacity: 1;
+    position: relative;
+    left: calc(var(--displaywidth)*-5.30);
+    width: calc(var(--displaywidth)*1.10);
+    height: calc(var(--displaywidth)*1.65);
+    top: calc(var(--displaywidth)*0.26);
+    transform: rotate(0.5deg);
+}
+
+@keyframes loadinground {
+    0% {
+        left: calc(var(--displaywidth) * 0.20);
+    }
+
+    50% {
+        left: calc(var(--displaywidth) * 0.60);
+    }
+
+    100% {
+        left: calc(var(--displaywidth)*0.20);
+    }
+}
+
+@keyframes loadingtomagazine {
+    from {}
+
+    30% {
+        left: calc(var(--displaywidth)* -4.6);
+        top: calc(var(--displaywidth)* 2.0);
+    }
+
+    90% {
+        left: calc(var(--displaywidth)*-4.6);
+        top: calc(var(--displaywidth)*2.0);
+    }
+
+    to {
+        top: calc(var(--displaywidth)*0.26);
+        left: calc(var(--displaywidth)*-5.30);
+    }
+}
+
+@keyframes cartridge {
+    from {
+        left: calc(var(--displaywidth) * 2.1);
+        top: calc(var(--displaywidth)*-0.2);
+    }
+
+    60% {
+        left: calc(var(--displaywidth) * 2.35);
+        top: calc(var(--displaywidth)*-1.05);
+    }
+
+    94% {
+        left: calc(var(--displaywidth)* 2.45);
+        top: calc(var(--displaywidth)*-0.95);
+        opacity: 1;
+    }
+
+    to {
+        left: calc(var(--displaywidth) * 2.3);
+        top: calc(var(--displaywidth)*-0.85);
+        opacity: 0;
+    }
+}
+
+@keyframes hammeranie {
+    from {
+        transform: rotate(0deg);
+    }
+
+    50% {
+        transform: translate(calc(var(--displaywidth)*0.22), calc(var(--displaywidth)*0.22)) rotate(60deg);
+    }
+
+    to {
+        transform: rotate(0deg);
+    }
+}
+
+.header.smallheader h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: calc(0.85*var(--fontsize) * var(--fontunnit));
+}
+
+.header.smallsmallheader h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: calc(0.65*var(--fontsize) * var(--fontunnit));
+}
+
+.body .header_wrap {
+    height: fit-content;
+}
+
+.levelareaul {
+    position: fixed;
+    top: 0em;
+    border-radius: calc(var(--displaywidth)*0.06);
+    border: 1px solid olive;
+    margin-right: calc(var(--displaywidth)*0.1) !important;
+    height: 2em;
+    display: flex;
+    white-space: none;
+    font-size: calc(var(--fontunnit));
+}
+
+.levelareaul .li {
+    background: olive;
+    color: white;
+    list-style-type: none;
+    list-style: none;
+    height: 2em;
+    position: relative;
+    left: 0px;
+    padding-left: calc(var(--displaywidth)*0.005);
+    padding-right: calc(var(--displaywidth)*0.005);
+
+    float: left;
+    display: inline;
+}
+
+.levelareaul .li:first-child {
+    float: inline-start;
+    position: relative;
+    border-top-left-radius: calc(var(--displaywidth)*0.06);
+    border-bottom-left-radius: calc(var(--displaywidth)*0.06);
+    margin-left: none !important;
+    padding-left: none !important;
+    margin-right: calc(var(--displaywidth) * 0.005);
+}
+
+.levelareaul .li:last-child {
+    margin-left: calc(var(--displaywidth) * 0.005);
+}
+
+.levelareaul .li:not(:first-child):not(:last-child) {
+    margin-left: calc(var(--displaywidth) * 0.005);
+    margin-right: calc(var(--displaywidth) * 0.005);
+}
+
+.body {
+    margin-top: 0px;
+    padding-top: 1.5em;
+}
+body {
+    background: #09a040;
+}
+@keyframes muzzleflash {
+    from {
+        opacity: 0;
+        background: radial-gradient(#ffff90, orangered, orange, red, #bef, #fff, transparent, transparent);
+        left: calc(var(--displaywidth) * -0.10);
+    }
+
+    50% {
+        top: calc(var(--displaywidth) * -1.55);
+    }
+
+    80% {
+        opacity: 1;
+        top: calc(var(--displaywidth) * -1.65);
+        background: radial-gradient(#ffff90, orangered, orange, red, #bef, #fff, transparent, transparent);
+        width: calc(var(--displaywidth)*0.8);
+        height: calc(var(--displaywidth)*0.4);
+    }
+
+    to {
+        top: calc(var(--displaywidth)*-1.55);
+        opacity: 0;
+        left: calc(var(--displaywidth) * -0.10);
+        background: radial-gradient(#ffff90, orangered, orange, red, #bef, #fff, transparent, transparent);
+        width: calc(var(--displaywidth)*0.4);
+        height: calc(var(--displaywidth)*0.3)
+    }
+}
+
+#m1911pistolgr[data-img-gun='_m1911'] .gunflash {
+    position: relative;
+    float: left;
+    opacity: 1;
+    display: none;
+    left: calc(var(--displaywidth) * -0.10);
+    top: calc(var(--displaywidth) * -1.85);
+    width: calc(var(--displaywidth)*0.3);
+    height: calc(var(--displaywidth)*0.3);
+    background: radial-gradient(#ffff90, orangered, orange, red, #bef, #fff, transparent, transparent);
+}
+#m1911pistolgr[data-img-gun='_PPK'] .gunflash {
+    position: relative;
+    float: left;
+    opacity: 1;
+    display: none;
+    left: calc(var(--displaywidth) * -7.50);
+    top: calc(var(--displaywidth) * -.025);
+    width: calc(var(--displaywidth)*0.3);
+    height: calc(var(--displaywidth)*0.3);
+    background: radial-gradient(#ffff90, orangered, orange, red, #bef, #fff, transparent, transparent);
+}
